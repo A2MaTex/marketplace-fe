@@ -11,17 +11,13 @@ import {
   BsPersonBadge,
   BsShieldLock,
   BsCheckCircleFill,
-  BsPatchCheckFill,
   BsGlobe2,
   BsGithub,
   BsTwitterX,
   BsLinkedin,
   BsInstagram,
-  BsCameraFill,
   BsTrash3,
   BsRocketTakeoff,
-  BsThunderbolt,
-  BsUpload,
 } from "react-icons/bs";
 import {
   FiPhone,
@@ -47,7 +43,6 @@ import GENDER from "@/constants/gender";
 import { authApi } from "@/features/auth/api/authApi";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineThunderbolt } from "react-icons/ai";
-import { BiCheck } from "react-icons/bi";
 
 /* ── helpers ─────────────────────────────────────────────────── */
 
@@ -206,10 +201,10 @@ const ProfilePage = () => {
     try {
       let myProfile = profile;
       console.log(myProfile);
-      
+
       if (!myProfile) {
         console.log("xx");
-        
+
         setLoading(true);
         myProfile = await userApi.getMyProfile();
       }
@@ -645,7 +640,7 @@ const ProfilePage = () => {
           balance={profile.balance ?? 0}
           onClose={() => setShowTopUpModal(false)}
           onTopUpSuccess={(newBalance) => {
-            setProfile((p) => ({ ...p, balance: newBalance }));
+            setProfile((prev) => ({ ...prev, balance: newBalance }));
             setShowTopUpModal(false);
             showToast(
               `Đã nạp thành công ${newBalance.toLocaleString("vi-VN")} VND vào tài khoản`,

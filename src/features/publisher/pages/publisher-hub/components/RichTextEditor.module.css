@@ -1,0 +1,118 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #1e2537;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #080b14;
+  transition: border-color 0.2s;
+}
+
+.wrapper:focus-within {
+  border-color: #00e5cc;
+  box-shadow: 0 0 0 3px rgba(0, 229, 204, 0.1);
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px solid #1e2537;
+  background: #0a0e1a;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.toolbarButtons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.toolbarBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 28px;
+  padding: 0 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.toolbarBtn:hover {
+  background: #1a1f35;
+  border-color: #2e3448;
+  color: #e2e8f0;
+}
+
+.toolbarBtn:active {
+  background: #252a3d;
+}
+
+/* ── Right badges ── */
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.modeBadge {
+  font-size: 11px;
+  color: #4b5268;
+  font-family: inherit;
+}
+
+.previewBadge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #00e5cc;
+  background: rgba(0, 229, 204, 0.08);
+  border: 1px solid rgba(0, 229, 204, 0.2);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+/* ── Textarea ── */
+.textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: vertical;
+  color: #e2e8f0;
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 12px 14px;
+  caret-color: #00e5cc;
+  min-height: 120px;
+}
+
+.textarea::placeholder {
+  color: #2e3448;
+}
+
+.textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+.textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+  background: #1e2537;
+  border-radius: 3px;
+}

@@ -1,0 +1,340 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Preset card row ── */
+.cardRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  flex: 1 1 100px;
+  min-width: 100px;
+  max-width: 160px;
+  border-radius: 10px;
+  padding: 14px 12px 12px;
+  border: 1px solid #1e2537;
+  background: #0d111e;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.2s;
+}
+
+.cardActive {
+  border-color: #1e2537;
+}
+
+.cardInactive {
+  opacity: 0.5;
+}
+
+.card:hover {
+  border-color: #2e3448;
+}
+
+/* ── Badge ── */
+.badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.badgePopular {
+  background: #0e2a2a;
+  color: #00e5cc;
+  border: 1px solid rgba(0, 229, 204, 0.3);
+}
+
+.badgeSave {
+  background: #1a2510;
+  color: #84cc16;
+  border: 1px solid rgba(132, 204, 22, 0.3);
+}
+
+.badgeLifetime {
+  background: #1a1535;
+  color: #a78bfa;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+/* ── Card content ── */
+.cardLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-top: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotActive   { background: #00e5cc; }
+.dotInactive { background: #374151; }
+
+/* ── Price input ── */
+.priceWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currencySign {
+  position: absolute;
+  left: 8px;
+  font-size: 13px;
+  color: #64748b;
+  pointer-events: none;
+}
+
+.priceInput {
+  width: 100%;
+  background: #080b14;
+  border: 1px solid #1a1f35;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 6px 8px 6px 22px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  /* Hide number input spinners */
+  -moz-appearance: textfield;
+}
+.priceInput::-webkit-outer-spin-button,
+.priceInput::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.priceInput:focus {
+  border-color: #00e5cc;
+}
+
+.vndHint {
+  font-size: 10px;
+  color: #4b5268;
+}
+
+/* ── Card footer (status + toggle) ── */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.statusLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #4b5268;
+}
+
+/* ── Toggle switch ── */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggleInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleTrack {
+  width: 32px;
+  height: 18px;
+  background: #1e2537;
+  border-radius: 9px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.toggleInput:checked + .toggleTrack {
+  background: #00e5cc;
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.toggleInput:checked ~ .toggleTrack .toggleThumb,
+.toggleInput:checked + .toggleTrack .toggleThumb {
+  transform: translateX(14px);
+}
+
+/* ── Custom license list (existing) ── */
+.customList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.customRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #0a0e1a;
+  border: 1px solid #1e2537;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+.customName { flex: 1; font-weight: 500; }
+.customDuration { color: #64748b; font-size: 12px; }
+.customPrice { font-weight: 700; min-width: 70px; text-align: right; }
+
+.removeCustomBtn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.removeCustomBtn:hover { color: #f87171; }
+
+/* ── Add custom form ── */
+.customForm {
+  border: 1px solid #1e2537;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #0a0e1a;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.customFormHeader {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.customFormRow {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.customField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 80px;
+}
+
+.customFieldLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: #4b5268;
+  text-transform: uppercase;
+}
+
+.customInput {
+  background: #080b14;
+  border: 1px solid #1a1f35;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 13px;
+  padding: 7px 10px;
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+  transition: border-color 0.2s;
+  -moz-appearance: textfield;
+}
+
+.customInput::-webkit-outer-spin-button,
+.customInput::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.customInput:focus { border-color: #00e5cc; }
+
+.customInput::placeholder { color: #2e3448; }
+
+.customSelect {
+  background: #080b14;
+  border: 1px solid #1a1f35;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 13px;
+  padding: 7px 8px;
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.customSelect:focus { border-color: #00e5cc; }
+
+.customPriceWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Add package button ── */
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #0d111e;
+  border: 1px solid #00e5cc;
+  border-radius: 7px;
+  color: #00e5cc;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+  font-family: inherit;
+}
+
+.addBtn:hover:not(:disabled) {
+  background: #00e5cc;
+  color: #07111a;
+}
+
+.addBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

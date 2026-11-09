@@ -1,0 +1,205 @@
+.item {
+  list-style: none;
+  border-bottom: 1px solid #0f1420;
+}
+
+/* ── Project header button ── */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+  border-radius: 0;
+}
+
+.header:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.headerExpanded {
+  background: rgba(0, 229, 204, 0.04);
+}
+
+/* Chevron */
+.chevron {
+  font-size: 11px;
+  color: #4b5268;
+  flex-shrink: 0;
+  margin-top: 3px;
+  transition: color 0.15s;
+}
+
+.header:hover .chevron,
+.headerExpanded .chevron {
+  color: #94a3b8;
+}
+
+/* Info block */
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.created {
+  font-size: 11px;
+  color: #4b5268;
+}
+
+/* Status badge */
+.statusBadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.statusActive {
+  background: rgba(0, 229, 204, 0.1);
+  color: #00e5cc;
+  border: 1px solid rgba(0, 229, 204, 0.25);
+}
+
+.statusInactive {
+  background: rgba(100, 116, 139, 0.1);
+  color: #64748b;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+/* ── Sub-list ── */
+.subList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  /* background: #070a12; */
+  border-top: 1px solid #0f1420;
+}
+
+/* ── Sub row (shared for draft + releases) ── */
+.subRow {
+  width: calc(100% - 20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  gap: 8px;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  border-left: 1.5px solid #a7a7a772;
+  transition: background 0.15s;
+}
+
+.subRow:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.subRowSelected {
+  background: rgba(0, 229, 204, 0.07);
+}
+
+/* ── Draft row ── */
+.draftLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.draftDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00e5cc;
+  flex-shrink: 0;
+}
+
+.draftMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.targetBadge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: rgba(0, 229, 204, 0.12);
+  color: #00e5cc;
+  border: 1px solid rgba(0, 229, 204, 0.2);
+}
+
+.metaText {
+  font-size: 11px;
+  color: #4b5268;
+}
+
+/* Loading indicator */
+.loadingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2e3448;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1;   }
+}
+
+/* ── Release row ── */
+.releaseLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748b;
+  font-family: ui-monospace, monospace;
+}
+
+.releaseDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2e3448;
+  flex-shrink: 0;
+}
+
+.releaseBadge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  flex-shrink: 0;
+}

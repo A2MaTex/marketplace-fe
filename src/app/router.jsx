@@ -10,6 +10,7 @@ import ForgotPasswordPage from "@/features/auth/pages/ForgotPasswordPage";
 import adminRoutes from "@/features/admin/routers/adminRoute";
 import AppLayout from "@/common/components/layout/AppLayout";
 import AdminLayout from "@/features/admin/components/layout/AdminLayout";
+import publisherRoutes from "@/features/publisher/routers/publisherRoute";
 
 export const router = createBrowserRouter([
   {
@@ -55,5 +56,10 @@ export const router = createBrowserRouter([
   {
     element: <AdminLayout />,
     children: adminRoutes(),
+  },
+  // Publisher routes
+  {
+    element: <AppLayout />,
+    children: publisherRoutes(),
   },
 ]);

@@ -9,7 +9,7 @@ import {
   uploadImageUrl,
   uploadStaticUrl,
 } from "./staticUrl";
-import { LAUNCHER_RELEASES_PREFIX } from "./constants";
+import { LAUNCHER_RELEASES_PREFIX } from "@/constants/static";
 
 const uploadStatic = ({ file, prefix }) => {
   const formData = new FormData();
@@ -21,10 +21,9 @@ const uploadStatic = ({ file, prefix }) => {
   });
 };
 
-const uploadImage = ({ file, prefix }) => {
+const uploadImage = ({ file }) => {
   const formData = new FormData();
   formData.append("image", file);
-  if (prefix) formData.append("prefix", prefix);
 
   return axiosInstance.post(uploadImageUrl, formData, {
     headers: { "Content-Type": "multipart/form-data" },

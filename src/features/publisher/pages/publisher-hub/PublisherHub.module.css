@@ -1,0 +1,17 @@
+/* Full-height two-panel layout */
+.page {
+  display: flex;
+  /* Fill the remaining viewport height below the app header */
+  height: calc(100svh - 56px); /* 56px = header height from AppLayout */
+  overflow: hidden;
+  background: #060810;
+}
+
+/* Right panel – takes remaining width */
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

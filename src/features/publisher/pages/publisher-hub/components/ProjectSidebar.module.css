@@ -1,0 +1,168 @@
+.sidebar {
+  width: 280px;
+  min-width: 240px;
+  flex-shrink: 0;
+  background: #0a0d18;
+  border-right: 1px solid #0f1420;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* ── Header section ── */
+.header {
+  padding: 14px 14px 10px;
+  border-bottom: 1px solid #0f1420;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Active count badge */
+.activeBadge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: #00e5cc;
+  background: rgba(0, 229, 204, 0.08);
+  border: 1px solid rgba(0, 229, 204, 0.2);
+  border-radius: 5px;
+  padding: 3px 8px;
+}
+
+/* Icon buttons (filter / sort) */
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  border: 1px solid #1e2537;
+  border-radius: 6px;
+  color: #4b5268;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.iconBtn:hover {
+  border-color: #00e5cc;
+  color: #00e5cc;
+}
+
+/* Section label row */
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #4b5268;
+  text-transform: uppercase;
+}
+
+/* Search bar */
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #080b14;
+  border: 1px solid #1a1f35;
+  border-radius: 7px;
+  padding: 0 10px;
+  height: 34px;
+  transition: border-color 0.2s;
+}
+
+.searchWrap:focus-within {
+  border-color: #00e5cc;
+}
+
+.searchIcon {
+  color: #2e3448;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e2e8f0;
+  font-size: 12px;
+  font-family: inherit;
+  caret-color: #00e5cc;
+}
+
+.searchInput::placeholder {
+  color: #2e3448;
+}
+
+.searchInput::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* ── List area ── */
+.listWrap {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.listWrap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.listWrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.listWrap::-webkit-scrollbar-thumb {
+  background: #1a1f35;
+  border-radius: 2px;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ── State messages ── */
+.stateMsg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 14px;
+  font-size: 12px;
+  color: #4b5268;
+}
+
+.errorMsg {
+  color: #f87171;
+}
+
+/* Spinner */
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 229, 204, 0.15);
+  border-top-color: #00e5cc;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

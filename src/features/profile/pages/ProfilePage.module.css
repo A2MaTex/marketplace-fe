@@ -91,6 +91,8 @@
 /* Avatar */
 .avatarWrap {
   position: relative;
+  width: 140px;
+  aspect-ratio: 1;
   flex-shrink: 0;
 }
 

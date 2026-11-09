@@ -1,5 +1,5 @@
-import { CHUNK_SIZE } from "@/common/api/static/constants";
 import { staticApi } from "@/common/api/static/staticApi";
+import { CHUNK_SIZE } from "@/constants/static";
 
 export const MAX_CHUNK_RETRIES = 3; // số lần retry tối đa cho mỗi chunk
 export const RETRY_DELAY_MS = 1000; // delay giữa các lần retry (1s)
@@ -42,8 +42,7 @@ export async function uploadChunkWithRetry({ url, chunk, partNumber, signal }) {
       }
 
       // S3 trả ETag trong response header
-      const etag =
-        res.headers.get("ETag") ?? res.headers.get("etag") ?? "";
+      const etag = res.headers.get("ETag") ?? res.headers.get("etag") ?? "";
       return { partNumber, etag: etag.replace(/"/g, "") };
     } catch (err) {
       if (isAbortError(err)) throw err; // abort thì dừng ngay, không retry

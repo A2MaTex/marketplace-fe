@@ -7,19 +7,40 @@ import styles from "./Header.module.css";
 import Button from "../common/Button";
 import logo from "@/assets/logo.svg";
 import { Avatar } from "../common/Avatar";
+import ROLE from "@/constants/roles";
 
 const NAV_ITEMS = [
   { label: "Marketplace", to: "/" },
   { label: "Desktop Launcher", to: "/launcher" },
   { label: "A2MaTeX Studio", to: "/studio" },
-  { label: "Admin Hub", to: "/admin/permission-role", isAdminOnly: true },
+];
+
+const ADMIN_ITEMS = [{ label: "Admin Hub", to: "/admin/permission-role" }];
+const PUBLISHER_ITEMS = [
+  {
+    label: "Publisher Hub",
+    to: "/publisher/publisher-hub",
+  },
 ];
 
 const Header = ({ user, avatar }) => {
   const [search, setSearch] = useState("");
 
-  const checkIsAdmin = () => {
-    return user?.roles?.some((role) => role.name === "ADMIN");
+  const getDisplayNavItems = () => {
+    let displayNavItems = NAV_ITEMS;
+
+    if (!user) return displayNavItems;
+
+    const checkIsAdmin = user?.roles?.some((role) => role.name === ROLE.ADMIN);
+
+    const checkIsPublisher = user?.roles?.some(
+      (role) => role.name === ROLE.PUBLISHER,
+    );
+
+    if (checkIsAdmin) displayNavItems = [...displayNavItems, ...ADMIN_ITEMS];
+    if (checkIsPublisher)
+      displayNavItems = [...displayNavItems, ...PUBLISHER_ITEMS];
+    return displayNavItems;
   };
 
   return (
@@ -33,22 +54,20 @@ const Header = ({ user, avatar }) => {
           </Link>
 
           <nav className={styles.nav} aria-label="Main navigation">
-            {NAV_ITEMS.map(({ label, to, isAdminOnly }) =>
-              isAdminOnly && !checkIsAdmin() ? null : (
-                <NavLink
-                  key={to}
-                  to={to}
-                  end={to === "/"}
-                  className={({ isActive }) =>
-                    [styles.navLink, isActive ? styles.navActive : ""]
-                      .filter(Boolean)
-                      .join(" ")
-                  }
-                >
-                  {label}
-                </NavLink>
-              ),
-            )}
+            {getDisplayNavItems().map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={to === "/"}
+                className={({ isActive }) =>
+                  [styles.navLink, isActive ? styles.navActive : ""]
+                    .filter(Boolean)
+                    .join(" ")
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
           </nav>
         </div>
 
